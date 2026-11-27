@@ -1,0 +1,188 @@
+#Ejercicio 1: Efimeras y Velocidad   speed <- 
+c(2, 3, 5, 9, 14, 24, 29, 34)   abundance <- 
+c(6, 3, 5, 23, 16, 12, 48, 43)  
+#Diagramna de dispersion    
+plot(speed, abundance,  
+main="Relacion entre velocidad y abundancia",        
+xlab="Speed",        
+col="maroon")  
+ylab="Abundance",        
+pch=19, 
+##Coeficiente de correlacion de pearson    
+cor.test(speed, abundance,            
+method ="pearson" )  
+##   
+##  Pearson's product-moment correlation  
+##   
+## data:  speed and abundance  
+## t = 3.8568, df = 6, p-value = 0.008393  
+## alternative hypothesis: true correlation is not equal to 0 
+## 95 percent confidence interval: ##  0.3442317 0.9711386 ## 
+sample estimates:  
+##       cor  ## 
+0.8441408  
+##“Existe una correlación positiva entre la velocidad de los arroyos y la 
+abundancia  
+## de efímeras (Ecdyonurus dispar)”.  
+    
+    
+    
+##EJERCICIO 2: Correlaciones del suelo     
+  # Datos   
+  soil <- data.frame(  
+    Gp   = c("T0","T0","T0","T0","T1","T1","T1"),     
+Block= 1:7,  
+    pH   = c(5.40,5.65,5.14,5.14,5.14,5.10,4.70),     N    
+= c(0.188,0.165,0.260,0.169,0.164,0.094,0.100),  
+    Dens = c(0.92,1.04,0.95,1.10,1.12,1.22,1.52),  
+    P    = c(215,208,300,248,174,129,117),  
+    Ca   = c(16.35,12.25,13.02,11.92,14.17,8.55,8.74),  
+    Mg   = c(7.65,5.15,5.68,7.88,8.12,6.92,8.16),  
+    K    = c(0.72,0.71,0.68,1.09,0.70,0.81,0.39),  
+    Na   = c(1.14,0.94,0.60,1.01,2.17,2.67,3.32),  
+    Conduc = c(1.09,1.35,1.41,1.64,1.85,3.18,4.16)   
+)  
+    
+  # Matriz de correlación  
+  cor_matrix <- cor(soil[,3:11], method="pearson")     
+  # Test de significancia para cada par   
+library(Hmisc)  
+##   
+## Adjuntando el paquete: 'Hmisc'  
+## The following objects are masked from 'package:base':  
+##   
+##     format.pval, units  
+ 
+  cor_results <- rcorr(as.matrix(soil[,3:11]))  
+     cor_matrix        # 
+coeficientes r  
+##                pH          N       Dens          P          Ca          
+Mg  
+## pH      1.0000000  0.3881145 -0.7736913  0.4206120  0.56848734 -0.6111 
+5331  
+## N       0.3881145  1.0000000 -0.7926628  0.9410159  0.69412870 -0.4310 
+3915  
+## Dens   -0.7736913 -0.7926628  1.0000000 -0.7865731 -0.79809646  0.4582 
+8088  
+## P       0.4206120  0.9410159 -0.7865731  1.0000000  0.57439198 -0.4509 
+9416  
+## Ca      0.5684873  0.6941287 -0.7980965  0.5743920  1.00000000 -0.0100 
+9406  
+## Mg     -0.6111533 -0.4310391  0.4582809 -0.4509942 -0.01009406  1.0000 
+0000  
+## K       0.3709419  0.1859458 -0.4912862  0.4397625  0.18456449 -0.0134 
+4459  
+## Na     -0.7114380 -0.8524815  0.8950210 -0.9322460 -0.65215650  0.5598 
+7093  
+## Conduc -0.8013901 -0.7888124  0.9577017 -0.8002884 -0.84959432  0.3924 
+1421  
+##                  K         Na     Conduc  
+## pH      0.37094191 -0.7114380 -0.8013901  
+## N       0.18594583 -0.8524815 -0.7888124  
+## Dens   -0.49128624  0.8950210  0.9577017  
+## P       0.43976248 -0.9322460 -0.8002884  
+## Ca      0.18456449 -0.6521565 -0.8495943  
+## Mg     -0.01344459  0.5598709  0.3924142  
+## K       1.00000000 -0.5176140 -0.5066074  
+## Na     -0.51761397  1.0000000  0.9230713 ## 
+Conduc -0.50660743  0.9230713  1.0000000   
+cor_results$P     # p-values  
+##                pH           N         Dens           P         Ca        
+Mg  
+## pH             NA 0.389598749 0.0412492796 0.347396647 0.18297197 0.14 
+48353  
+## N      0.38959875          NA 0.0335058897 0.001571912 0.08359083 0.33 
+42845  
+## Dens   0.04124928 0.033505890           NA 0.035894252 0.03145189 0.30 
+10543  
+## P      0.34739665 0.001571912 0.0358942516          NA 0.17743202 0.30 
+97948  
+## Ca     0.18297197 0.083590834 0.0314518872 0.177432022         NA 0.98 
+28647  
+## Mg     0.14483526 0.334284451 0.3010542750 0.309794820 0.98286466         
+NA  
+## K      
+0.41268477 0.689757431 0.2628616908 0.323480126 0.69198279 0.97 
+71778  
+## Na     
+0.07301106 0.014803213 0.0064764582 0.002212297 0.11240576 0.19 
+12051  
+## Conduc 0.03024205 0.035005360 0.0006907938 0.030643788 0.01551290 0.38 
+39018  
+##                
+K          
+Na       
+Conduc  
+## pH     
+0.4126848 0.073011065 0.0302420518  
+## N      
+0.6897574 0.014803213 0.0350053599  
+## Dens   0.2628617 0.006476458 0.0006907938  
+## P      
+0.3234801 0.002212297 0.0306437882  
+## Ca     
+0.6919828 0.112405762 0.0155129011  
+## Mg     
+## K             
+## Na     
+0.9771778 0.191205072 0.3839018130  
+NA 0.234092556 0.2459325415  
+0.2340926          
+NA 0.0030236919  
+## Conduc 0.2459325 0.003023692           
+# Correlograma   
+library(corrplot) ## 
+corrplot 0.95 loaded  
+)  
+NA  
+corrplot(cor_matrix, method="circle", type="upper",  
+tl.cex=0.8, col=colorRampPalette(c("red","white","blue"))(200) 
+### ===============================   
+### Ejercicio 3: Cuarteto de Anscombe  
+  ### ===============================     
+  # Datos  
+  anscombe_data <- anscombe  # ya viene incluido en R     
+  # Resumen estadístico   
+summary(anscombe_data)  
+##        x1             x2             x3             x4           y1        
+##  Min.   : 4.0   Min.   : 4.0   Min.   : 4.0   Min.   : 8   Min.   : 4. 
+260    
+##  1st Qu.: 6.5   1st Qu.: 6.5   1st Qu.: 6.5   1st Qu.: 8   1st Qu.: 6. 
+315    
+##  Median : 9.0   Median : 9.0   Median : 9.0   Median : 8   Median : 7. 
+580    
+##  Mean   : 9.0   Mean   : 9.0   Mean   : 9.0   Mean   : 9   Mean   : 7. 
+501    
+##  3rd Qu.:11.5   3rd Qu.:11.5   3rd Qu.:11.5   3rd Qu.: 8   3rd Qu.: 8. 
+570    
+##  Max.   :14.0   Max.   :14.0   Max.   :14.0   Max.   :19   Max.   :10. 
+840    
+##        y2              y3              y4          
+##  Min.   :3.100   Min.   : 5.39   Min.   : 5.250    
+##  1st Qu.:6.695   1st Qu.: 6.25   1st Qu.: 6.170    
+##  Median :8.140   Median : 7.11   Median : 7.040    
+##  Mean   :7.501   Mean   : 7.50   Mean   : 7.501    
+##  3rd Qu.:8.950   3rd Qu.: 7.98   3rd Qu.: 8.190    
+##  Max.   :9.260   Max.   :12.74   Max.   :12.500  
+  # Correlaciones   cor(anscombe_data$x1, 
+anscombe_data$y1)  
+## [1] 0.8164205   cor(anscombe_data$x2, 
+anscombe_data$y2)  
+## [1] 0.8162365   cor(anscombe_data$x3, 
+anscombe_data$y3)  
+## [1] 0.8162867   cor(anscombe_data$x4, 
+anscombe_data$y4)  
+## [1] 0.8165214  
+  # Gráficas  
+  
+  # Gráficas   
+par(mfrow=c(2,2))  
+  plot(anscombe_data$x1, anscombe_data$y1,         
+main="Conjunto I")  
+abline(lm(y1 ~ x1, data=anscombe_data), col="blue")  
+plot(anscombe_data$x2, anscombe_data$y2, main="Conjunto II")   
+abline(lm(y2 ~ x2, data=anscombe_data), col="red")  
+plot(anscombe_data$x3, anscombe_data$y3, main="Conjunto III")   
+abline(lm(y3 ~ x3, data=anscombe_data), col="purple")  
+plot(anscombe_data$x4, anscombe_data$y4, main="Conjunto IV")  
+abline(lm(y4 ~ x4, data=anscombe_data), col="yellow") 
