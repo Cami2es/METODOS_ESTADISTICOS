@@ -18,5 +18,18 @@ Organizar y conservar los trabajos realizados durante el curso, así como mostra
 
 ## Actividades del curso en orden cronológico
 
-En este apartado se irán agregando las actividades realizadas durante el semestre, ordenadas por fecha y acompañadas de una breve descripción.
+## Actividades del curso en orden cronológico
+
+Durante el semestre se desarrollaron diferentes actividades para aplicar los conocimientos de métodos estadísticos.
+
+1. **Laboratorio 01:** Primera práctica del curso.
+2. **Laboratorio 02:** Ejercicios y actividades en clase.
+3. **Laboratorio 03:** Aplicación de regresión.
+4. **Laboratorio 04:** Ejercicios de regresión II.
+5. **Tarea:** Preparación para examen.
+6. **Tarea:** Ejercicios realizados en clase.
+7. **Tarea:** Regresión.
+8. **Tarea:** Regresión II.
+9. **Examen parcial:** Evaluación de los temas del curso.
+10. **Examen II:** Segunda evaluación del curso.
 
