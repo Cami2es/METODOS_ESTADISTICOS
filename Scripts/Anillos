@@ -1,0 +1,138 @@
+# ALISSON CAMILA SAUCEDA ESCOBEDO  
+# 2187319 
+13/10/2026 
+## [1] 0.0006416584 
+# Evaluación II - METODOS ESTADISTICOS  
+# ANILLOS DE CRECIMIENTO Y TEMPERATURA  
+
+ 
+# EJERCICIO 1 
+ 
+# a) Ingresar los datos 
+ 
+AFres <- c(2.45, 1.98, 3.12, 2.67, 1.85, 
+           2.90, 3.35, 2.20, 2.76, 2.58) 
+ 
+ACal <- c(2.51, 1.90, 3.20, 2.55, 1.92, 
+          2.84, 3.41, 2.12, 2.70, 2.66) 
+ 
+anillos <- data.frame( 
+  Temperatura = factor(rep(c("AFres", "ACal"), each = 10)), 
+  Ancho = c(AFres, ACal) 
+) 
+ 
+# b) Hipotesis 
+# H0: Las medias del ancho de los anillos son iguales. 
+# H1: Las medias del ancho de los anillos son diferentes. 
+ 
+# c) Media de AFres y ACal 
+mean(AFres) 
+## [1] 2.586 
+mean(ACal) 
+## [1] 2.581 
+# d) Desviacion estandar 
+sd(AFres) 
+## [1] 0.4808834 
+sd(ACal) 
+## [1] 0.503001 
+# e) Diferencia media 
+diferencia1 <- AFres - ACal 
+mean(diferencia1) 
+## [1] 0.005 
+# f) Valor de t 
+prueba1 <- t.test(AFres, ACal, paired = TRUE) 
+prueba1 
+##  
+##  Paired t-test 
+##  
+## data:  AFres and ACal 
+## t = 0.1952, df = 9, p-value = 0.8496 
+## alternative hypothesis: true mean difference is not equal to 0 
+## 95 percent confidence interval: 
+##  -0.0529444  0.0629444 
+## sample estimates: 
+## mean difference  
+##           0.005 
+# g) Diferencias significativas 
+prueba1$statistic 
+##         t  
+## 0.1952007 
+prueba1$parameter 
+## df  
+##  9 
+prueba1$p.value 
+## [1] 0.8495715 
+# Conclusion: 
+# t = 0.195, gl = 9, p = 0.850. 
+# Como p > 0.05, no hay diferencias significativas. 
+# No hay evidencia suficiente de que la temperatura haya 
+# cambiado el ancho de los anillos. 
+ 
+# h) Conclusion del responsable 
+# No se puede afirmar que el ano calido redujo significativamente 
+# el crecimiento. Los resultados no son suficientes para declarar 
+# la zona vulnerable. 
+ 
+ 
+# EJERCICIO 2 
+ 
+# Ingresar los datos 
+ 
+AFres2 <- c(2.45, 1.98, 3.12, 2.67, 1.85, 
+            2.90, 3.35, 2.20, 2.76, 2.58) 
+ 
+ACal2 <- c(2.10, 1.82, 2.64, 2.48, 1.70, 
+           2.41, 2.95, 2.15, 2.30, 2.35) 
+ 
+# Hipotesis 
+# H0: Las medias del ancho de los anillos son iguales. 
+# H1: Las medias del ancho de los anillos son diferentes. 
+ 
+# a) Media de AFres y ACal 
+mean(AFres2) 
+## [1] 2.586 
+mean(ACal2) 
+## [1] 2.29 
+# b) Desviacion estandar 
+sd(AFres2) 
+## [1] 0.4808834 
+sd(ACal2) 
+## [1] 0.370735 
+# c) Diferencia media 
+diferencia2 <- AFres2 - ACal2 
+mean(diferencia2) 
+## [1] 0.296 
+# d) Valor de t 
+prueba2 <- t.test(AFres2, ACal2, paired = TRUE) 
+prueba2 
+##  
+##  Paired t-test 
+##  
+## data:  AFres2 and ACal2 
+## t = 5.8804, df = 9, p-value = 0.0002347 
+## alternative hypothesis: true mean difference is not equal to 0 
+## 95 percent confidence interval: 
+##  0.1821306 0.4098694 
+## sample estimates: 
+## mean difference  
+##           0.296 
+# e) Diferencias significativas 
+prueba2$statistic 
+##        t  
+## 5.880408 
+prueba2$parameter 
+## df  
+##  9 
+prueba2$p.value 
+## [1] 0.0002347087 
+# Conclusion: 
+# t = 5.880, gl = 9, p = 0.000 (redondeado). 
+# Como p < 0.05, se rechaza H0. 
+# Existe una diferencia significativa entre ambos anos. 
+# El ancho medio de los anillos fue menor en el ano calido. 
+ 
+# f) Decision de la Comision Forestal 
+# Los resultados muestran una reduccion significativa del ancho 
+# de los anillos en el ano calido. Esto sugiere una posible 
+# vulnerabilidad del sitio, aunque no demuestra que la temperatura 
+# sea la unica causa.
