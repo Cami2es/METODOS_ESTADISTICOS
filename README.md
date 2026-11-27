@@ -32,5 +32,4 @@ Durante el semestre se desarrollaron diferentes actividades para aplicar los con
 9. **Examen parcial:** Evaluación de los temas del curso.
 10. **Examen II:** Segunda evaluación del curso.
 
-## Captura de Insights Contributors
 
