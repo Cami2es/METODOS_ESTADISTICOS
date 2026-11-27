@@ -18,7 +18,6 @@ Organizar y conservar los trabajos realizados durante el curso, así como mostra
 
 ## Actividades del curso en orden cronológico
 
-## Actividades del curso en orden cronológico
 
 Durante el semestre se desarrollaron diferentes actividades para aplicar los conocimientos de métodos estadísticos.
 
